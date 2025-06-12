@@ -1,16 +1,9 @@
-"""
-Main module for DSA web scraping
 
-This script runs the DSA web scraper to collect concepts and topics
-from various online resources.
-"""
 
 import os
 import logging
 import argparse
 from dsa_scraper import DSAWebScraper
-
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -36,11 +29,8 @@ def main():
     )
     
     args = parser.parse_args()
-    
-    # Ensure output directory exists
+
     os.makedirs(args.output_dir, exist_ok=True)
-    
-    # Initialize and run scraper
     scraper = DSAWebScraper(output_dir=args.output_dir)
     
     if args.topic:
